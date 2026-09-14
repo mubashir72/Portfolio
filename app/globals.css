@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==============================================================================
+   GLOBAL CSS & DESIGN TOKENS (SOLID COLOR FUTURISTIC SYSTEM)
+   ============================================================================== */
+
+:root {
+  --bg-main: #0a0a0f;
+  --fg-main: #f1f5f9;
+  --accent-neon: #00f0ff;
+}
+
+/* Base Body Defaults */
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--fg-main);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1e2d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* 
+ * SOLID COLOR UTILITY CLASSES (STRICT ZERO GRADIENTS)
+ * Subtle glows use box-shadow instead of background gradients.
+ */
+
+/* Glowing Card Border on Hover */
+.glow-card {
+  transition: all 0.3s ease;
+  border: 1px solid #1e1e2d;
+}
+
+.glow-card:hover {
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+/* Solid Accent Glow Box */
+.glow-accent {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
