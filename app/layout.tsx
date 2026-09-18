@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import GridPattern from "@/components/ui/GridPattern";
-import { personalInfo } from "@/data/content";
+import { personalInfo, socials } from "@/data/content";
 
 // Heading Display Font (Space Grotesk - Futuristic / Tech)
 const fontHeading = Space_Grotesk({
@@ -59,6 +59,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "ND9eZdWa-GMnoJmzLXqriryecve7dzrFhgD4LC1NMPo",
+  },
 };
 
 export default function RootLayout({
@@ -66,11 +69,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: personalInfo.name,
+    url: "https://mubashir-portfolio.vercel.app",
+    image: `https://mubashir-portfolio.vercel.app${personalInfo.avatarUrl}`,
+    jobTitle: personalInfo.role,
+    sameAs: socials
+      .map((social) => social.url)
+      .filter((url) => url !== "#" && !url.startsWith("mailto:")),
+  };
+
   return (
     <html
       lang="en"
       className={`dark ${fontHeading.variable} ${fontSans.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-bg text-fg font-sans antialiased min-h-screen relative selection:bg-accent selection:text-bg">
         {/* Futuristic Background Grid Pattern */}
         <GridPattern />
