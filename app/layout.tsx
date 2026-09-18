@@ -19,7 +19,7 @@ const fontSans = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mubashir-portfolio.vercel.app"),
+  metadataBase: new URL("https://mubashircodes.netlify.app"),
   title: `${personalInfo.name} | ${personalInfo.headlineTitle}`,
   description: personalInfo.bioSummary,
   keywords: [
@@ -73,8 +73,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     name: personalInfo.name,
-    url: "https://mubashir-portfolio.vercel.app",
-    image: `https://mubashir-portfolio.vercel.app${personalInfo.avatarUrl}`,
+    url: "https://mubashircodes.netlify.app",
+    image: `https://mubashircodes.netlify.app${personalInfo.avatarUrl}`,
     jobTitle: personalInfo.role,
     sameAs: socials
       .map((social) => social.url)
