@@ -73,6 +73,11 @@ export interface Project {
   liveUrl?: string;
   featured: boolean;
   image?: string;
+  gallery?: {
+    src: string;
+    alt: string;
+    caption: string;
+  }[];
 }
 
 export interface ExperienceItem {
@@ -277,6 +282,134 @@ export const technologies: TechCategory[] = [
 // 4. FEATURED PROJECTS
 // ------------------------------------------------------------------------------
 export const projects: Project[] = [
+  {
+    id: "resumelens-ai",
+    title: "ResumeLens",
+    subtitle: "AI Resume Review & ATS Readiness Analysis",
+    description:
+      "A Streamlit application that reviews resumes with Google Gemini and turns the analysis into clear, prioritized guidance for job seekers.",
+    bullets: [
+      "Scores content, impact, keywords, and formatting while comparing a resume with an optional target job description.",
+      "Surfaces matched and missing keywords, section-level feedback, and stronger rewrites for existing resume bullets.",
+      "Supports PDF, DOCX, and TXT uploads and produces a downloadable JSON analysis report.",
+    ],
+    tags: ["Python", "Streamlit", "Google Gemini", "pypdf", "python-docx", "ATS"],
+    githubUrl: "https://github.com/mubashir72/resumelens-ai",
+    liveUrl: "https://resumelens--ai.streamlit.app/",
+    featured: true,
+    gallery: [
+      {
+        src: "/images/projects/resumelens-ats.png",
+        alt: "ResumeLens ATS score and overall assessment screen",
+        caption: "ATS score, overall assessment, and category-level breakdown",
+      },
+      {
+        src: "/images/projects/resumelens-recommendations.png",
+        alt: "ResumeLens strengths and recommended improvements screen",
+        caption: "Resume strengths and a prioritized improvement plan",
+      },
+    ],
+  },
+  {
+    id: "khatgroq-ai",
+    title: "KhatGroq AI",
+    subtitle: "Groq-Powered Professional Email Generator",
+    description:
+      "A polished AI email generator that transforms a short brief into a professional, editable message in seconds.",
+    bullets: [
+      "Generates a subject, greeting, body, and sign-off based on purpose, tone, length, language, and creativity controls.",
+      "Lets users refine the generated draft in place, copy a ready-to-send version, or download it as a text file.",
+      "Keeps Groq credentials server-side and provides clear handling for configuration, authentication, and rate-limit errors.",
+    ],
+    tags: ["Python", "Streamlit", "Groq", "LLMs", "Prompt Engineering", "UI/UX"],
+    githubUrl: "https://github.com/mubashir72/KhatGroq-AI",
+    liveUrl: "https://khatgroq.streamlit.app/",
+    featured: true,
+    gallery: [
+      {
+        src: "/images/projects/khatgroq-landing.png",
+        alt: "KhatGroq AI landing page",
+        caption: "Responsive landing page and email brief interface",
+      },
+      {
+        src: "/images/projects/khatgroq-generator.png",
+        alt: "KhatGroq AI professional outreach email generator",
+        caption: "Editable, business-ready email generated from a focused brief",
+      },
+    ],
+  },
+  {
+    id: "ai-content-assistant",
+    title: "Bluebird AI Content Assistant",
+    subtitle: "Platform-Aware Social Content Generation",
+    description:
+      "A responsive Streamlit app that turns a concise content brief into a polished, platform-aware post with a caption and relevant hashtags.",
+    bullets: [
+      "Tailors content by format, publishing platform, target audience, tone, length, call to action, and supporting context.",
+      "Generates a ready-to-publish post, caption, and hashtag set that users can preview, copy, or download as a text file.",
+      "Uses fast Groq inference with server-side credentials and clear handling for configuration, connection, and rate-limit errors.",
+    ],
+    tags: ["Python", "Streamlit", "Groq", "LLMs", "Content Generation", "Prompt Engineering"],
+    githubUrl: "https://github.com/mubashir72/AI-content-assistant",
+    liveUrl: "https://ai-content-assistant-m72.streamlit.app/",
+    featured: true,
+    gallery: [
+      {
+        src: "/images/projects/ai-content-assistant-homepage.png",
+        alt: "Bluebird AI Content Assistant homepage",
+        caption: "Blue frosted-glass workspace for creating platform-aware content",
+      },
+    ],
+  },
+  {
+    id: "hr-policy-assistant",
+    title: "HR Policy Assistant",
+    subtitle: "Evidence-Grounded Policy Q&A with RAG",
+    description:
+      "A document question-answering app that searches an uploaded HR policy PDF and returns grounded answers with page-level evidence.",
+    bullets: [
+      "Extracts and chunks page-aware PDF text, then performs local semantic retrieval with Sentence Transformers and FAISS.",
+      "Uses Groq to answer only from retrieved policy passages and displays page citations with expandable source excerpts.",
+      "Supports replaceable documents, session-scoped chat history, and focused unit tests for the retrieval pipeline.",
+    ],
+    tags: ["Python", "Streamlit", "RAG", "Groq", "FAISS", "Sentence Transformers"],
+    githubUrl: "https://github.com/mubashir72/HR-policy-handbook",
+    liveUrl: "https://sthmjflgjphrqjlvp3hff5.streamlit.app/",
+    featured: true,
+  },
+  {
+    id: "papersensei",
+    title: "PaperSensei",
+    subtitle: "Adaptive AI Study & Exam Preparation Assistant",
+    description:
+      "An AI learning workspace that turns a student's own notes and textbooks into conceptual practice, explanations, and guided tutoring.",
+    bullets: [
+      "Generates source-based quizzes and adapts topic difficulty from answer streaks, with simpler follow-ups after mistakes.",
+      "Combines PDF study material, an AI tutor, past-paper topic insights, progress reports, and downloadable session summaries.",
+      "Adds verified Firebase accounts and Firestore-backed sessions while retaining a guest mode for local practice.",
+    ],
+    tags: ["Python", "Streamlit", "Groq", "Firebase", "Firestore", "pdfplumber"],
+    githubUrl: "https://github.com/mubashir72/PaperSensei",
+    liveUrl: "https://papersensei.streamlit.app/",
+    featured: true,
+    gallery: [
+      {
+        src: "/images/projects/papersensei-workspace.png",
+        alt: "PaperSensei study workspace",
+        caption: "Study workspace for adding material and starting practice",
+      },
+      {
+        src: "/images/projects/papersensei-tutor.png",
+        alt: "PaperSensei AI tutor chat",
+        caption: "AI tutor conversations grounded in the current study material",
+      },
+      {
+        src: "/images/projects/papersensei-progress.png",
+        alt: "PaperSensei learning progress dashboard",
+        caption: "Quiz results, topic performance, and adaptive difficulty progress",
+      },
+    ],
+  },
   {
     id: "youtube-rag-qa",
     title: "YouTube Video Q&A System using RAG",
